@@ -1,0 +1,14 @@
+# mltk-js:
+#   filter: rjsmin
+#   output: ckanext-mltk/%(version)s-mltk.js
+#   contents:
+#     - js/mltk.js
+#   extra:
+#     preload:
+#       - base/main
+
+# mltk-css:
+#   filter: cssrewrite
+#   output: ckanext-mltk/%(version)s-mltk.css
+#   contents:
+#     - css/mltk.css
