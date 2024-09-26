@@ -1,16 +1,15 @@
-import ckan.plugins as plugins
-import ckan.plugins.toolkit as toolkit
+from typing import Any
+
+from ckan import plugins as p
+from ckan.plugins import toolkit as tk
 
 
-class MltkPlugin(plugins.SingletonPlugin):
-    plugins.implements(plugins.IConfigurer)
-    
+class MltkPlugin(p.SingletonPlugin):
+    p.implements(p.IConfigurer)
 
     # IConfigurer
 
-    def update_config(self, config_):
-        toolkit.add_template_directory(config_, "templates")
-        toolkit.add_public_directory(config_, "public")
-        toolkit.add_resource("assets", "mltk")
-
-    
+    def update_config(self, config_: Any):
+        tk.add_template_directory(config_, "templates")
+        tk.add_public_directory(config_, "public")
+        tk.add_resource("assets", "mltk")
