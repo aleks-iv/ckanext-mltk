@@ -4,6 +4,8 @@ from ckan import plugins as p
 from ckan.plugins import toolkit as tk
 
 
+@tk.blanket.actions
+@tk.blanket.config_declarations
 class MltkPlugin(p.SingletonPlugin):
     p.implements(p.IConfigurer)
 

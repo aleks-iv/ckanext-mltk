@@ -2,7 +2,12 @@
 
 # ckanext-mltk
 
-**TODO:** Put a description of your extension here:  What does it do? What features does it have? Consider including some screenshots or embedding a video!
+This extension provides a set of machine learning tools for CKAN.
+Currently, it supports the following features:
+1. Extracting keywords from a resource using KeyBERT or ChatGPT.
+2. Generating a title for a resource using KeyBERT or ChatGPT.
+3. Generating a description for a resource using KeyBERT or ChatGPT.
+4. Performing sentiment analysis on the content of a resource.
 
 
 ## Requirements
@@ -14,12 +19,11 @@ If your extension works across different versions you can add the following tabl
 
 Compatibility with core CKAN versions:
 
-| CKAN version    | Compatible?   |
-| --------------- | ------------- |
-| 2.6 and earlier | not tested    |
-| 2.7             | not tested    |
-| 2.8             | not tested    |
-| 2.9             | not tested    |
+| CKAN version | Compatible? |
+|--------------|-------------|
+| 2.9          | not tested  |
+| 2.10         | yes         |
+
 
 Suggested values:
 

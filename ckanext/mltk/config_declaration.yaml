@@ -1,0 +1,94 @@
+version: 1
+groups:
+  - annotation: ckanext-mltk
+    options:
+      - key: ckanext.mltk.nlp_engine
+        default: keybert
+        description: |
+          NLP engine to use for NLP tasks (keybert or chatgpt)
+
+      - key: ckanext.mltk.openai_api_key
+        default: YOUR_OPENAI_API_KEY
+        description: |
+          OpenAI API key for ChatGPT
+
+      - key: ckanext.mltk.openai_model
+        default: gpt-4o-mini
+        description: |
+          OpenAI model to use (e.g., 'gpt-3.5-turbo' or 'gpt-4')
+
+      - key: ckanext.mltk.openai_temperature
+        default: 0.7
+        description: |
+          Temperature parameter for OpenAI API
+
+      - key: ckanext.mltk.openai_max_tokens
+        default: {"combined": 500}
+        description: |
+          Maximum number of tokens for each part of the generated text
+
+      - key: ckanext.mltk.keybert_model_name
+        default: all-MiniLM-L6-v2
+        description: |
+          KeyBERT model name to use for keyphrase extraction
+
+      - key: ckanext.mltk.keybert_keyphrase_ngram_range
+        default: [1, 3]
+        type: list
+        description: |
+          N-gram range for keyphrase extraction
+
+      - key: ckanext.mltk.keybert_title_ngram_range
+        default: [1, 5]
+        type: list
+        description: |
+          N-gram range for title generation
+
+      - key: ckanext.mltk.keybert_description_ngram_range
+        default: [1, 5]
+        type: list
+        description: |
+          N-gram range for description generation
+
+      - key: ckanext.mltk.keybert_use_mmr
+        default: True
+        type: bool
+        description: |
+          Use Maximal Marginal Relevance (MMR) for keyphrase extraction
+
+      - key: ckanext.mltk.keybert_diversity
+        default: 0.7
+        description: |
+          Diversity parameter for keyphrase extraction
+
+      - key: ckanext.mltk.keybert_nr_candidates
+        default: {"keywords": 40, "title": 50, "description": 50}
+        description: |
+          Number of candidates to consider for each part of the generated text
+
+      - key: ckanext.mltk.keybert_top_n
+        default: {"keywords": 10, "title": 3, "description": 5}
+        description: |
+          Number of keyphrases to select for each part of the generated text
+
+      - key: ckanext.mltk.keybert_min_score
+        default: 0.5
+        description: |
+          Minimum score for keyphrase selection
+
+      - key: ckanext.mltk.sentiment_analyzer_model
+        default: sentiment-analysis
+        description: |
+          Sentiment analysis model to use
+
+      - key: ckanext.mltk.sentiment_text_max_length
+        default: 512
+        type: int
+        description: |
+          Maximum length of text for sentiment analysis
+
+      - key: ckanext.mltk.nltk_download_punkt
+        default: True
+        type: bool
+        description: |
+          Download 'punkt' tokenizer data for NLTK
