@@ -1,9 +1,52 @@
-[tool.black]
-# line-length = 88
-# preview = true
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
-[tool.ruff]
-target-version = "py38"
+[project]
+name = "ckanext-mltk"
+version = "0.0.1"
+description = "Machine Learning Toolkit for CKAN"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Programming Language :: Python :: 3.8",
+]
+
+keywords = ["CKAN"]
+authors = [
+    { name = "Oleksandr Ivaniuk", email = "aleks.ivaniuk@gmail.com" },
+]
+maintainers = [
+    { name = "Oleksandr Ivaniuk", email = "aleks.ivaniuk@gmail.com" },
+]
+dependencies = [
+    "keybert==0.8.5",
+    "nltk==3.9.1",
+    "openai==1.48.0",
+    "pdftotext==2.2.2",
+    "tiktoken==0.9.0",
+    "ckanext-flakes",
+]
+optional-dependencies = { }
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.license]
+text = "AGPL"
+
+[project.urls]
+Homepage = "https://github.com/aleks-iv/ckanext-mltk"
+
+[project.entry-points]
+"babel.extractors" = { ckan = "ckan.lib.extract:extract_ckan" }
+
+[project.entry-points."ckan.plugins"]
+mltk = "ckanext.mltk.plugin:MLTKPlugin"
+
+[tool.setuptools.packages]
+find = { }
 
 [tool.ruff.lint]
 select = [
@@ -17,7 +60,7 @@ select = [
        "W",  # pycodestyle warning
        "F",  # pyflakes
        "FA", # verify annotations from future
-       "G",  # format strings for logging statements
+       # "G",  # format strings for logging statements
        "N",  # naming conventions
        "I",  # isort
        "ICN", # import conventions
@@ -72,30 +115,18 @@ section-order = [
 ]
 
 [tool.ruff.lint.isort.sections]
-# Group all Django imports into a separate section.
 ckan = ["ckan"]
 ckanext = ["ckanext"]
-self = ["ckanext.mltk"]
-
-[tool.isort]
-known_ckan = "ckan"
-known_ckanext = "ckanext"
-known_self = "ckanext.mltk"
-sections = "FUTURE,STDLIB,FIRSTPARTY,THIRDPARTY,CKAN,CKANEXT,SELF,LOCALFOLDER"
-profile = "black"
+self = ["ckanext.scientometrics"]
 
 [tool.pytest.ini_options]
+asyncio_mode = "auto"
 addopts = "--ckan-ini test.ini"
 filterwarnings = [
-               "ignore::sqlalchemy.exc.SADeprecationWarning",
-               "ignore::sqlalchemy.exc.SAWarning",
-               "ignore::DeprecationWarning",
+    "ignore::sqlalchemy.exc.SADeprecationWarning",
+    "ignore::sqlalchemy.exc.SAWarning",
+    "ignore::DeprecationWarning",
 ]
-
-[tool.git-changelog]
-output = "CHANGELOG.md"
-convention = "conventional"
-parse-trailers = true
 
 [tool.pyright]
 pythonVersion = "3.8"

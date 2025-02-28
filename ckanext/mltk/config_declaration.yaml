@@ -3,7 +3,7 @@ groups:
   - annotation: ckanext-mltk
     options:
       - key: ckanext.mltk.nlp_engine
-        default: keybert
+        default: chatgpt
         description: |
           NLP engine to use for NLP tasks (keybert or chatgpt)
 
@@ -23,7 +23,7 @@ groups:
           Temperature parameter for OpenAI API
 
       - key: ckanext.mltk.openai_max_tokens
-        default: {"combined": 500}
+        default: {"combined": 1500}
         description: |
           Maximum number of tokens for each part of the generated text
 
